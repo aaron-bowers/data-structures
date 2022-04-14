@@ -1,6 +1,34 @@
+var storage, numericKey, sizeIndex;
+
 var Queue = function() {
-  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
-  // but try not not reference your old code in writing the new style.
+  // Initialization
+  storage = {};
+  numericKey = 0;
+  sizeIndex = 0;
+
+  this;
 };
 
+Queue.prototype.enqueue = function(value) {
+  storage[numericKey] = value;
+  numericKey++;
+  sizeIndex++;
+};
 
+Queue.prototype.dequeue = function() {
+  for (var key in storage) {
+    var firstInQueue = storage[key];
+    delete storage[key];
+    break;
+  }
+  sizeIndex--;
+  return firstInQueue;
+};
+
+Queue.prototype.size = function() {
+  if (sizeIndex < 0) {
+    return 0;
+  } else {
+    return sizeIndex;
+  }
+};
