@@ -5,26 +5,28 @@ var Stack = function() {
   storage = {};
   numericKey = 0;
 
-  var instance = Object.create(Stack.prototype);
+  var instance = Object.create(stackMethods);
 
   return instance;
 };
 
-Stack.prototype.push = function(value) {
-  storage[numericKey] = value;
-  numericKey++;
-};
-
-Stack.prototype.pop = function() {
-  delete storage[numericKey];
-  numericKey--;
-  return storage[numericKey];
-};
-
-Stack.prototype.size = function() {
-  if (numericKey < 0) {
-    return 0;
-  } else {
-    return numericKey;
+var stackMethods = {
+  push: function(value) {
+    storage[numericKey] = value;
+    numericKey++;
+  },
+  pop: function() {
+    delete storage[numericKey];
+    numericKey--;
+    return storage[numericKey];
+  },
+  size: function() {
+    if (numericKey < 0) {
+      return 0;
+    } else {
+      return numericKey;
+    }
   }
 };
+
+

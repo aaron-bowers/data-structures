@@ -6,34 +6,33 @@ var Queue = function() {
   numericKey = 0;
   sizeIndex = 0;
 
-  var instance = Object.create(Queue.prototype);
+  var instance = Object.create(queueMethods);
 
   return instance;
 };
 
-Queue.prototype.enqueue = function(value) {
-  storage[numericKey] = value;
-  numericKey++;
-  sizeIndex++;
-};
+var queueMethods = {
+  enqueue: function(value) {
+    storage[numericKey] = value;
+    numericKey++;
+    sizeIndex++;
+  },
 
-Queue.prototype.dequeue = function() {
-  for (var key in storage) {
-    var firstInQueue = storage[key];
-    delete storage[key];
-    break;
+  dequeue: function() {
+    for (var key in storage) {
+      var firstInQueue = storage[key];
+      delete storage[key];
+      break;
+    }
+    sizeIndex--;
+    return firstInQueue;
+  },
+
+  size: function() {
+    if (sizeIndex < 0) {
+      return 0;
+    } else {
+      return sizeIndex;
+    }
   }
-  sizeIndex--;
-  return firstInQueue;
 };
-
-Queue.prototype.size = function() {
-  if (sizeIndex < 0) {
-    return 0;
-  } else {
-    return sizeIndex;
-  }
-};
-
-
-
