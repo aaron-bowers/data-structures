@@ -6,27 +6,34 @@ var Queue = function() {
 
   // create index tracking variable
   var numericKey = 0;
-  var queueIndex = [];
+  var sizeIndex = 0;
 
   // Implement the methods below
   someInstance.enqueue = function(value) {
     storage[numericKey] = value;
-    queueIndex.push('"' + numericKey + '"');
     numericKey++;
+    sizeIndex++;
+    console.log(storage);
   };
 
   someInstance.dequeue = function() {
-    delete storage[queueIndex[0]];
-    queueIndex = queueIndex.slice(1);
-    numericKey--;
-    return storage[numericKey];
+    // var firstInQueue;
+    for (var key in storage) {
+      var firstInQueue = storage[key];
+      delete storage[key];
+      break;
+    }
+    sizeIndex--;
+    console.log(storage);
+    // console.log(firstInQueue);
+    return firstInQueue;
   };
 
   someInstance.size = function() {
-    if (numericKey < 0) {
+    if (sizeIndex < 0) {
       return 0;
     } else {
-      return numericKey;
+      return sizeIndex;
     }
   };
 
