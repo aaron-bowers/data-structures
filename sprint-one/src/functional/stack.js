@@ -11,7 +11,7 @@ var Stack = function() {
     storage[numericKey] = value;
     numericKey++;
   };
-  debugger;
+
   someInstance.pop = function() {
     delete storage[numericKey];
     numericKey--;
