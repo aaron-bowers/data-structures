@@ -13,19 +13,15 @@ var Queue = function() {
     storage[numericKey] = value;
     numericKey++;
     sizeIndex++;
-    console.log(storage);
   };
 
   someInstance.dequeue = function() {
-    // var firstInQueue;
     for (var key in storage) {
       var firstInQueue = storage[key];
       delete storage[key];
       break;
     }
     sizeIndex--;
-    console.log(storage);
-    // console.log(firstInQueue);
     return firstInQueue;
   };
 
