@@ -1,8 +1,32 @@
+var storage, numericKey;
+
 var Stack = function() {
-  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
-  // but try not not reference your old code in writing the new style.
+  // Initializations
+  storage = {};
+  numericKey = 0;
+
+  var instance = Object.create(stackMethods);
+
+  return instance;
 };
 
-var stackMethods = {};
+var stackMethods = {
+  push: function(value) {
+    storage[numericKey] = value;
+    numericKey++;
+  },
+  pop: function() {
+    delete storage[numericKey];
+    numericKey--;
+    return storage[numericKey];
+  },
+  size: function() {
+    if (numericKey < 0) {
+      return 0;
+    } else {
+      return numericKey;
+    }
+  }
+};
 
 
