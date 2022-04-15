@@ -2,27 +2,27 @@ var storage, numericKey;
 
 var Stack = function() {
   // Initializations
-  storage = {};
-  numericKey = 0;
+  this.storage = {};
+  this.numericKey = 0;
 
   this;
 };
 
 Stack.prototype.push = function(value) {
-  storage[numericKey] = value;
-  numericKey++;
+  this.storage[this.numericKey] = value;
+  this.numericKey++;
 };
 
 Stack.prototype.pop = function() {
-  delete storage[numericKey];
-  numericKey--;
-  return storage[numericKey];
+  delete this.storage[this.numericKey];
+  this.numericKey--;
+  return this.storage[this.numericKey];
 };
 
 Stack.prototype.size = function() {
-  if (numericKey < 0) {
+  if (this.numericKey < 0) {
     return 0;
   } else {
-    return numericKey;
+    return this.numericKey;
   }
 };
