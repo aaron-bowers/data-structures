@@ -2,7 +2,6 @@ var Tree = function(value) {
   var newTree = {};
   newTree.value = value;
 
-  // your code here
   newTree.children = [];
   _.extend(newTree, treeMethods);
 
@@ -14,6 +13,7 @@ var treeMethods = {};
 treeMethods.addChild = function(value) {
   this.children.push(Tree(value));
 };
+// O(1) - Constant
 
 treeMethods.contains = function(target) {
   // base case
@@ -40,8 +40,7 @@ treeMethods.contains = function(target) {
   // return false
   return false;
 };
-
-
+// O(n) - Linear
 
 /*
  * Complexity: What is the time complexity of the above functions?

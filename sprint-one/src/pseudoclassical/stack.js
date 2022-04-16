@@ -1,11 +1,8 @@
 var storage, numericKey;
 
 var Stack = function() {
-  // Initializations
   this.storage = {};
   this.numericKey = 0;
-
-  this;
 };
 
 Stack.prototype.push = function(value) {

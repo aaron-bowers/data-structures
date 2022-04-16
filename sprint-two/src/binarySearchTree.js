@@ -25,6 +25,7 @@ bstMethods.insert = function(value) {
     }
   }
 };
+// O(log n) - Logarithmic
 
 bstMethods.contains = function(target) {
   if (this.value === target) {
@@ -45,6 +46,7 @@ bstMethods.contains = function(target) {
     }
   }
 };
+// O(log n) - Logarithmic
 
 bstMethods.depthFirstLog = function(cb) {
   cb(this.value);
@@ -55,6 +57,7 @@ bstMethods.depthFirstLog = function(cb) {
     this.right.depthFirstLog(cb);
   }
 };
+// O(n) - Linear because we have to callback for every node.
 
 /*
  * Complexity: What is the time complexity of the above functions?

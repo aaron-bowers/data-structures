@@ -18,6 +18,7 @@ var LinkedList = function() {
       this.head = this.tail;
     }
   };
+  // O(1) - Constant
 
   list.removeHead = function() {
     // remove the head
@@ -27,6 +28,7 @@ var LinkedList = function() {
     // return the value of head variable
     return head.value;
   };
+  // O(1) - Constant
 
   list.contains = function(target) {
     // declare a variable named current
@@ -48,6 +50,7 @@ var LinkedList = function() {
 
   return list;
 };
+// O(n) - Linear
 
 var Node = function(value) {
   var node = {};
