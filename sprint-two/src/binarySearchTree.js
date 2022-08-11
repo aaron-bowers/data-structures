@@ -1,5 +1,5 @@
-var BinarySearchTree = function(value) {
-  var tree = Object.create(bstMethods);
+let BinarySearchTree = function (value) {
+  let tree = Object.create(bstMethods);
   tree.value = value;
   tree.left = null;
   tree.right = null;
@@ -7,10 +7,10 @@ var BinarySearchTree = function(value) {
   return tree;
 };
 
-var bstMethods = {};
+let bstMethods = {};
 
-bstMethods.insert = function(value) {
-  var child = BinarySearchTree(value);
+bstMethods.insert = function (value) {
+  let child = BinarySearchTree(value);
   if (value < this.value) {
     if (!this.left) {
       this.left = child;
@@ -27,7 +27,7 @@ bstMethods.insert = function(value) {
 };
 // O(log n) - Logarithmic
 
-bstMethods.contains = function(target) {
+bstMethods.contains = function (target) {
   if (this.value === target) {
     return true;
   }
@@ -48,7 +48,7 @@ bstMethods.contains = function(target) {
 };
 // O(log n) - Logarithmic
 
-bstMethods.depthFirstLog = function(cb) {
+bstMethods.depthFirstLog = function (cb) {
   cb(this.value);
   if (this.left) {
     this.left.depthFirstLog(cb);

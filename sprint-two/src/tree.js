@@ -1,5 +1,5 @@
-var Tree = function(value) {
-  var newTree = {};
+let Tree = function (value) {
+  let newTree = {};
   newTree.value = value;
 
   newTree.children = [];
@@ -8,14 +8,14 @@ var Tree = function(value) {
   return newTree;
 };
 
-var treeMethods = {};
+let treeMethods = {};
 
-treeMethods.addChild = function(value) {
+treeMethods.addChild = function (value) {
   this.children.push(Tree(value));
 };
 // O(1) - Constant
 
-treeMethods.contains = function(target) {
+treeMethods.contains = function (target) {
   // base case
   // if we find target
   if (this.value === target) {
@@ -31,7 +31,7 @@ treeMethods.contains = function(target) {
   // recursion
   // not the target and has children
   // iterate over each child
-  for (var i = 0; i < this.children.length; i++) {
+  for (let i = 0; i < this.children.length; i++) {
     // recursively call function on each child
     if (this.children[i].contains(target)) {
       return true;

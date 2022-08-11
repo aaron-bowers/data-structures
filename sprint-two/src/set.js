@@ -1,24 +1,24 @@
-var Set = function() {
-  var set = Object.create(setPrototype);
+let Set = function () {
+  let set = Object.create(setPrototype);
   set._storage = []; // fix me
   return set;
 };
 
-var setPrototype = {};
+let setPrototype = {};
 
-setPrototype.add = function(item) {
+setPrototype.add = function (item) {
   this._storage.push(item);
 };
 // O(1) - Constant
 
-setPrototype.contains = function(item) {
+setPrototype.contains = function (item) {
   return this._storage.indexOf(item) > -1;
 };
 // O(n) - Linear
 
-setPrototype.remove = function(item) {
+setPrototype.remove = function (item) {
   if (this.contains(item)) {
-    var index = this._storage.indexOf(item);
+    let index = this._storage.indexOf(item);
     this._storage.splice(index, 1);
   }
 };
